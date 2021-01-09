@@ -12,7 +12,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :phone_number,     limit: 30
       t.date :last_login
       t.text :intro
-      t.text :profile
+      t.text :profile 
 
       t.timestamps
     end
