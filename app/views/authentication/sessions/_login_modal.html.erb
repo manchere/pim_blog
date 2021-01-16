@@ -1,0 +1,24 @@
+    <div class="form-group">
+            <%= f.text_field :email, id: 'exampleInputEmail', class: 'form-control form-control-user', placeholder: 'Enter Email Address...', 'aria-describedby': 'emailHelp' %>
+    </div>
+    <div class="form-group">
+            <%= f.password_field :password, id: 'exampleInputPassword', class: 'form-control form-control-user', placeholder: 'Password', 'aria-describedby': 'emailHelp' %>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox small">
+            <%= f.check_box :remember_me, id: 'customCheck', class: 'custom-control-input' %>
+            <%= f.label 'Remember Me', class: 'custom-control-label', for: 'customCheck' %>
+        </div>
+    </div>
+    
+    <%= f.submit 'login', class: 'btn btn-primary btn-user btn-block' %>
+    <hr>
+    <%= link_to '/auth/google_oauth2', class: 'btn btn-google btn-user btn-block' do %>
+      <i class="fab fa-google fa-fw"></i> Login with Google
+    <% end %>
+    <%= link_to '/auth/facebook', class: 'btn btn-facebook btn-user btn-block' do %>
+      <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+    <% end %>
+
+
+                            
