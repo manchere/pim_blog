@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <%= image_tag 'pim_logo_white.png', width: 80, height: 30 %>
+    <% end %>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to root_path, class: 'btn btn-secondary' do %>
+            <span class="text">home</span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: 'btn btn-secondary' do %>
+            <span class="text">posts</span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: 'btn btn-secondary' do %>
+            <span class="text">about</span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: 'btn btn-secondary' do %>
+            <span class="text">contact</span>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '/plans', class: 'btn btn-default' do %>
+            <span class="text">Get a plan</span>
+          <% end %>
+        </li>
+        <% if !user_signed_in? %>
+        <%= byebug %>
+          <%= render 'layouts/navbar_auth' unless current_page?('/signin') || current_page?('/register') || current_page?('/password') %>
+        <% else %>
+          <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="mr-2 d-none d-lg-inline small nav-spec"><%= current_user.username if current_user %></span>
+              <%= image_tag '', width: 30, height: 30 %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <%= link_to user_path(current_user), class:'dropdown-item' do %>
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Profile
+              <% end %>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                Settings
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                Activity Log
+              </a>
+              <div class="dropdown-divider"></div>
+              <%= link_to destroy_user_session_path, class: 'dropdown-item', data: { toggle: 'modal', target: '#logoutModal' } do %>
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Sign out
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

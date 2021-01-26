@@ -21,11 +21,15 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
-gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+gem 'jwt'
 # Use Active Storage variant
+gem 'htmlbeautifier'
 gem 'image_processing', '~> 1.2'
+gem 'omniauth-facebook',          '~> 5.0'
+gem 'omniauth-google-oauth2',     '~> 0.6'
+gem 'rubocop', '~> 1.8', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -33,15 +37,18 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails'
-  gem 'factory_bot_rails', '~> 6.1'
-  gem 'spring-commands-rspec'
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'annotate'
   gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -53,4 +60,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'simplecov', require: false
 end

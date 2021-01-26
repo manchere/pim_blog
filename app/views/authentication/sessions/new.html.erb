@@ -10,15 +10,19 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
-                <%= form_with model: @user, class: 'user' do |f| %>
-                  <%= render partial: 'login_modal', locals: { f: f } %>
+                <%= form_for resource, as: resource_name, url: user_session_path(resource_name), class: 'user' do |f| %>
+                  <%= render 'shared/error_messages', resource: resource %>
+                  <%= render partial: 'form', locals: { f: f } %>
+                  <%= f.submit 'login', class: 'btn btn-default btn-user btn-block' %>
+                  <hr>
+                  <%= render partial: 'authentication/oauth' %>
                 <% end %>
                 <hr>
                 <div class="text-center">
-                  <a class="small" href="forgot-password.html">Forgot Password?</a>
+                  <%= link_to 'Forgot Password?', new_user_password_path, class: 'small' %>
                 </div>
                 <div class="text-center">
-                  <a class="small" href="register.html">Create an Account!</a>
+                  <%= link_to 'Create an Account', new_user_registration_path, class: 'small' %>
                 </div>
               </div>
             </div>

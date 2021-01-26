@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_13_230842) do
+ActiveRecord::Schema.define(version: 2021_01_19_202126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 2021_01_13_230842) do
     t.index ["title"], name: "index_categories_on_title", using: :gin
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
   create_table "friendships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "follower_id"
     t.uuid "followee_id"
@@ -93,6 +104,15 @@ ActiveRecord::Schema.define(version: 2021_01_13_230842) do
     t.text "content", default: "t", null: false
   end
 
+  create_table "subscriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "mtn_momo_user_id"
+    t.string "stripe_user_id"
+    t.boolean "active"
+    t.uuid "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tags", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.string "meta_title"
@@ -105,9 +125,9 @@ ActiveRecord::Schema.define(version: 2021_01_13_230842) do
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "token", null: false
+    t.string "token"
     t.string "slug", null: false
-    t.string "username", null: false
+    t.string "username"
     t.string "first_name"
     t.string "middle_name"
     t.string "last_name"

@@ -2,6 +2,7 @@
 @import "base/variables";
 @import "base/mixins";
 @import "base/normalize";
+@import "base/function";
 @import "base/globals";
 
 // responsive
@@ -15,6 +16,7 @@
 @import "application/pages/friendships";
 @import "application/pages/home";
 @import "application/pages/post";
+@import "application/pages/login";
 
 // layouts
 @import "layouts/footer";

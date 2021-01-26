@@ -1,4 +1,3 @@
-<h2>Sign up</h2>
 <div class="container">
   <div class="card o-hidden border-0 shadow-lg my-5">
     <div class="card-body p-0">
@@ -9,14 +8,19 @@
             <div class="text-center">
               <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
             </div>
-            <%= form_with model: @user, url: new_user_registration_path, class: 'user' do |f| %>
+            <%= form_for resource, as: resource_name, url: user_registration_path(resource_name), class: 'user' do |f| %>
+              <%= render 'shared/error_messages', resource: resource %>
+              <%= render partial: 'form', locals: { f: f } %>
+              <%= f.submit 'Register Account', class: 'btn btn-default btn-user btn-block' %>
+              <hr>
+              <%= render partial: 'authentication/oauth' %>
             <% end %>
             <hr>
             <div class="text-center">
-              <a class="small" href="forgot-password.html">Forgot Password?</a>
+              <%= link_to 'Forgot Password?', new_user_password_path, class:'small' %>
             </div>
             <div class="text-center">
-              <a class="small" href="login.html">Already have an account? Login!</a>
+              <%= link_to 'Already have an account? Login!', new_user_session_path, class: 'small' %>
             </div>
           </div>
         </div>
@@ -24,4 +28,3 @@
     </div>
   </div>
 </div>
-<#%= render "users/shared/links" %>
