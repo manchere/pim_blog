@@ -1,3 +1,4 @@
+
 // base
 @import "base/variables";
 @import "base/mixins";
@@ -10,6 +11,8 @@
 // objects
 @import "application/objects/buttons";
 @import "application/objects/inputs";
+@import "application/objects/dropdown";
+
 
 // pages
 @import "application/pages/contact";
@@ -22,6 +25,10 @@
 @import "layouts/footer";
 @import "layouts/masthead";
 @import "layouts/navbar";
+@import "layouts/sidenav";
 
 // vendors
-@import "vendors/bootstrap-overrides"
+@import "vendors/bootstrap-overrides";
+
+//utilities
+@import "application/utilities/animation";

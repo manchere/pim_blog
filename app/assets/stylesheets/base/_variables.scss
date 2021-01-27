@@ -95,8 +95,30 @@ $transition-collapse: height .15s ease !default;
 // Dropdowns
 $dropdown-font-size: 0.85rem !default;
 $dropdown-border-color: $border-color !default;
+$dropdown-link-hover-color: $white;
+$dropdown-link-hover-bg: #46638a;
+$dropdown-link-active-bg: $default;
 
 // Images
 $login-image: 'pim_login_sm.png' !default;
 $register-image: 'pim_login_sm.png' !default;
 $password-image: 'https://source.unsplash.com/oWTW-jNGl9I/600x800' !default;
+
+//caret
+$caret-width:                 .3em !default;
+$caret-vertical-align:        $caret-width * .85 !default;
+$caret-spacing:               $caret-width * .85 !default;
+
+//Reassigned shared variables
+$input-btn-padding-y:         .375rem !default;
+$input-btn-padding-x:         .75rem !default;
+
+$input-btn-padding-y-sm:      .25rem !default;
+$input-btn-padding-x-sm:      .5rem !default;
+
+//Buttons
+$btn-padding-y:               $input-btn-padding-y !default;
+$btn-padding-x:               $input-btn-padding-x !default;
+
+$btn-padding-y-sm:            $input-btn-padding-y-sm !default;
+$btn-padding-x-sm:            $input-btn-padding-x-sm !default;

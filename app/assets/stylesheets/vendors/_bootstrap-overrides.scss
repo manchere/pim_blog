@@ -2,10 +2,8 @@
 .btn {
   font-size: 14px;
   font-weight: 800;
-  padding: 15px 25px;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  border-radius: 0;
+  border-radius: 0.3;
   @include sans-serif-font;
 }
 
@@ -24,4 +22,124 @@
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px;
+}
+
+// Styling for the navbar
+.navbar {
+  position: absolute;
+  border-bottom: 1px solid $gray-200;
+  
+  // background-color: white;
+  background-color: opacity($color: black);
+  @include sans-serif-font;
+  .navbar-brand {
+    font-weight: 800;
+    color: $gray-800;
+  }
+  .navbar-toggler {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 13px;
+    text-transform: uppercase;
+    color: $white;
+  }
+  .navbar-nav {
+    > li.nav-item {
+      > a {
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+      }
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    border-bottom: 1px solid transparent;
+    background: transparent;
+    .navbar-brand {
+      padding: 10px 20px;
+      color: $white;
+      &:focus,
+      &:hover {
+        color: fade-out($white, .2);
+      }
+    }
+    .navbar-nav {
+      > li.nav-item {
+        > a {
+
+          color: $white;
+          &:focus,
+          &:hover {
+            color: fade-out($white, .2);
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    -webkit-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    &.is-fixed {
+      /* when the user scrolls down, we hide the header right above the viewport */
+      position: fixed;
+      top: -67px;
+      -webkit-transition: -webkit-transform 0.2s;
+      -moz-transition: -moz-transform 0.2s;
+      transition: transform 0.2s;
+      border-bottom: 1px solid darken($white, .05);
+      background-color: fade-out($white, .1);
+      .navbar-brand {
+        color: $gray-900;
+        &:focus,
+        &:hover {
+          color: $primary;
+        }
+      }
+      .navbar-nav {
+        > li.nav-item {
+          > a {
+            color: $gray-900;
+            &:focus,
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+    &.is-visible {
+      /* if the user changes the scrolling direction, we show the header */
+      -webkit-transform: translate3d(0, 100%, 0);
+      -moz-transform: translate3d(0, 100%, 0);
+      -ms-transform: translate3d(0, 100%, 0);
+      -o-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
