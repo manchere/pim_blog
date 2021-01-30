@@ -35,6 +35,7 @@
 yarn-debug.log*
 .yarn-integrity
 
+#Ignore environment variable file
 .env
 
 echo "coverage" >> .gitignore
