@@ -1,10 +1,18 @@
 
-// base
+// variables
 @import "base/variables";
-@import "base/mixins";
+
+//mixins
+@import "base/mixins/buttons";
+@import "base/mixins/caret";
+@import "base/mixins/fonts";
+@import "base/mixins/miscellaneous";
+
+//base components
 @import "base/normalize";
 @import "base/function";
 @import "base/globals";
+
 
 // responsive
 
@@ -12,7 +20,7 @@
 @import "application/objects/buttons";
 @import "application/objects/inputs";
 @import "application/objects/dropdown";
-
+@import "application/objects/cards";
 
 // pages
 @import "application/pages/contact";
@@ -26,9 +34,11 @@
 @import "layouts/masthead";
 @import "layouts/navbar";
 @import "layouts/sidenav";
+@import "layouts/error_message";
 
 // vendors
 @import "vendors/bootstrap-overrides";
 
 //utilities
 @import "application/utilities/animation";
+@import "application/utilities/fontawesome";
