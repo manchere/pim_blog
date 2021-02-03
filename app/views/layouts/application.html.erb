@@ -4,15 +4,13 @@
     <title>PimBlog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="icon" href="assets/undraw_profile_p" type="image/png">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
-
-  <body> 
+  <body>
     <%= yield %>
-    
-    <%= render 'layouts/navbar' unless current_page?('/signin') %>
+    <%= render 'layouts/navbar' unless controller_name == 'sessions' || controller_name == 'passwords' %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
