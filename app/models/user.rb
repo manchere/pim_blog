@@ -88,4 +88,8 @@ class User < ApplicationRecord
       default_image
     end
   end
+
+    def admin?
+    !admin.nil?
+  end
 end
