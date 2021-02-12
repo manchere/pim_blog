@@ -45,6 +45,8 @@ class User < ApplicationRecord
 
   # callbacks
   after_create :create_subscription
+  after_update :last_password_update_at, if: :saved_change_to_encrypted_password?
+
   # validations
   validates :slug, uniqueness: true
   validates :email, format: { with: VALID_EMAIL_REGEX }, presence: true
@@ -64,6 +66,7 @@ class User < ApplicationRecord
   has_one :subscription
   has_one :admin
   has_one_attached :image
+  has_many :social_media
 
   # friendly ID
   friendly_id :first_name, use: %i[slugged finders]
@@ -89,7 +92,20 @@ class User < ApplicationRecord
     end
   end
 
-    def admin?
+  def admin?
     !admin.nil?
   end
+
+  def last_password_update_at
+    update(last_password_updated: DateTime.now)
+  end
+
+  def last_password_update_date
+    last_password_updated.strftime('%m-%d-%Y') 
+  end
+
+  def last_password_update_time
+    last_password_updated.strftime('%H:%M') 
+  end
+
 end

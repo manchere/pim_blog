@@ -2,35 +2,29 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Change </h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Update</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-            <div class="col-lg-7">
-              <div class="p-5">
-                <div class="text-center">
-                  <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                </div>
-                <%= form_with model: @user, url: edit_user_path, class: 'user' do |f| %>
+      <%= form_with model: @user, url: edit_user_path, class: 'user' do |f| %>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg">
+                <div class="px-5 pt-3">
                   <%= render partial: 'form', locals: { f: f } %>
-                  <%= f.submit 'Update', class: 'btn btn-default btn-user btn-block' %>
-                  <hr>
-                <% end %>
-                <hr>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Update</button>
-      </div>
+        <div class="modal-footer px-5 pb-4">
+          <%= f.submit 'Update', class: 'btn btn-default btn-block' %>
+          <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Close</button>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
 </div>
