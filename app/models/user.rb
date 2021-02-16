@@ -49,6 +49,7 @@ class User < ApplicationRecord
 
   # validations
   validates :slug, uniqueness: true
+  validates :email, uniqueness: { case_sensitive: false }
   validates :email, format: { with: VALID_EMAIL_REGEX }, presence: true
   # validates :username, format: { with: VALID_USERNAME_REGEX },
   #           exclusion: { in: USERNAME_EXCLUSIONS, message: :duplicate },
@@ -59,10 +60,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # relationships
-  has_many :followed_users, foreign_key: :follower_id, class_name: 'Friendship'
-  has_many :followees, through: :followed_users
-  has_many :following_users, foreign_key: :followee_id, class_name: 'Friendship'
-  has_many :followers, through: :following_users
+  has_many :active_relationships, foreign_key: :follower_id, class_name: 'Friendship', dependent: :destroy
+  has_many :followees, through: :active_relationships, source: :followed
+  has_many :passive_relationships, foreign_key: :followee_id, class_name: 'Friendship', dependent: :destroy
+  has_many :followers, through: :following_users, source: :follower
   has_one :subscription
   has_one :admin
   has_one_attached :image
@@ -106,6 +107,10 @@ class User < ApplicationRecord
 
   def last_password_update_time
     last_password_updated.strftime('%H:%M') 
+  end
+
+  def follow(user_to_follow)
+    active_relationships.create(:followee_id user_to_follow.id)
   end
 
 end
