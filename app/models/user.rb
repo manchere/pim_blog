@@ -51,9 +51,11 @@ class User < ApplicationRecord
   validates :slug, uniqueness: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :email, format: { with: VALID_EMAIL_REGEX }, presence: true
-  # validates :username, format: { with: VALID_USERNAME_REGEX },
-  #           exclusion: { in: USERNAME_EXCLUSIONS, message: :duplicate },
-  #           uniqueness: { case_sensitive: false }
+  validates :phone_number, telephone_number: { country: proc{ |rec| rec .country }, types: [:fixed_line, :mobile] }
+  validates :username, format: { with: VALID_USERNAME_REGEX },
+            exclusion: { in: USERNAME_EXCLUSIONS, message: :duplicate },
+            uniqueness: { case_sensitive: false }
+  validates :encrypted_password, confirmation: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -68,6 +70,7 @@ class User < ApplicationRecord
   has_one :admin
   has_one_attached :image
   has_many :social_media
+  has_many :posts
 
   # friendly ID
   friendly_id :first_name, use: %i[slugged finders]
@@ -110,7 +113,7 @@ class User < ApplicationRecord
   end
 
   def follow(user_to_follow)
-    active_relationships.create(:followee_id user_to_follow.id)
+    active_relationships.create(followee_id: user_to_follow.id)
   end
 
 end
