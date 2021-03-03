@@ -24,4 +24,17 @@
 class Post < ApplicationRecord
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :categories
+  belongs_to :user
+
+  #ES searchable Concern
+  include Searchable
+
+  settings do
+    mappings dynamic: 'false' do 
+      indexes :title, type: :text, analyzer: :autocomplete
+      indexes :meta_title, type: :text, type: :keyword
+      indexes :content, type: :text, type: :keyword, analyzer: 'english'
+    end
+  end
+  
 end
