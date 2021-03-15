@@ -15,6 +15,9 @@
                       <%= link_to current_user.full_name, users_path(@user) %>
                       <%="at #{date_today_format('%d/%m/%Y')}" %>
                     </p>
+                    <div>
+                      <%= flash[:notice] %>
+                    </div>
                   </div>
                   <%= form_for @post do |f| %>
                     <div class="row">
@@ -39,3 +42,4 @@
       </div>
     </div>
   </div>
+</div>

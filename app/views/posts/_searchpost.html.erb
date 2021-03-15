@@ -1,10 +1,26 @@
-<%= form_tag(search_page_path, method: :get, class: 'd-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search') do %>
-  <div class="input-group">
-    <%= search_field_tag :search, params[:search], placeholder: 'Search Post', class: 'form-control bg-light border-0 small' %>
-    <div class="">
-      <%= button_tag 'Search post', class: 'btn btn-default', id: 'search_post_btn', name: nil do %>
-        <i class="fas fa-search fa-sm"></i>
-      <% end %>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="search-form">
+      <div class="p-0">
+        <form id="search-form">
+          <div class="row">
+            <div class="col-12">
+              <div class="row no-gutters">
+                <%= form_tag(search_page_path, method: :get, class: 'd-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search') do %>
+                  <div class="input-group">
+                    <%= search_field_tag :search, params[:search], placeholder: 'Search Post', class: 'form-control bg-light border-0 small' %>
+                    <div class="">
+                      <%= button_tag 'Search post', class: 'btn btn-default', id: 'search_post_btn', name: nil do %>
+                        <i class="fas fa-search fa-sm"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
