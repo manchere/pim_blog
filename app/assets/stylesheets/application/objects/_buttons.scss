@@ -1,10 +1,28 @@
 
-.btn-default {
-    @include button-variant($white, $default, $default);
+.btn-default, .btn-outline-default{
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 1px;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;   
+    @include sans-serif-font()
+}
+
+.btn-default {
+    @include button-variant($white, $default, $default);
+}
+    
+.btn-outline-default {
+  @include button-variant($default, $white, $white);
+  border-color: $default;
+  border-width: 2px;
+}
+
+.btn-link {
+      color: $gray-900;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        color: $default;
+      }
 }
 
 .btn-nav{
@@ -64,5 +82,3 @@
       }
     }
   }
-
-  

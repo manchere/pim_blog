@@ -34,14 +34,10 @@
           null,
           null,
           null,
-          1,
-          null,
-          1,
-          null,
-          1,
           null,
           null,
-          1,
+          null,
+          null,
           null,
           1,
           null,
@@ -49,8 +45,38 @@
           1,
           null,
           1,
+          null,
           1,
           null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           1,
           1,
           1,
@@ -64,6 +90,50 @@
           null,
           null,
           1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          0,
           0,
           null,
           null
@@ -72,6 +142,12 @@
       "/Users/manucheremeh/Desktop/pim_blog/app/models/application_record.rb": {
         "lines": [
           1,
+          1,
+          null
+        ]
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/helpers/admin_helper.rb": {
+        "lines": [
           1,
           null
         ]
@@ -88,6 +164,24 @@
           0,
           null,
           null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/helpers/contact_helper.rb": {
+        "lines": [
+          1,
           null
         ]
       },
@@ -103,7 +197,37 @@
           null
         ]
       },
+      "/Users/manucheremeh/Desktop/pim_blog/app/helpers/markets_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/helpers/omniauth_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/helpers/posts_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/helpers/products_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/manucheremeh/Desktop/pim_blog/app/helpers/registrations_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/helpers/search_helper.rb": {
         "lines": [
           1,
           null
@@ -121,11 +245,45 @@
           null
         ]
       },
+      "/Users/manucheremeh/Desktop/pim_blog/app/helpers/users_helper.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
       "/Users/manucheremeh/Desktop/pim_blog/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
           0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/identity.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
           0
         ],
         "branches": {
@@ -184,6 +342,216 @@
         "branches": {
         }
       },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/contact.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/product.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/social_media.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/ckeditor/attachment_file.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/ckeditor/asset.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/ckeditor/picture.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/admin.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/manucheremeh/Desktop/pim_blog/app/models/post_comment.rb": {
         "lines": [
           null,
@@ -205,6 +573,39 @@
           null,
           null,
           0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/market.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
           0
         ],
         "branches": {
@@ -248,6 +649,8 @@
           0,
           0,
           0,
+          0,
+          0,
           0
         ],
         "branches": {
@@ -281,6 +684,114 @@
           0,
           0,
           0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/models/concerns/searchable.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0
         ],
         "branches": {
@@ -306,6 +817,30 @@
           0,
           null,
           0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/admin/users_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/admin/dashboard_controller.rb": {
+        "lines": [
+          0,
           0,
           null,
           0,
@@ -313,14 +848,7 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
           null,
-          0,
-          0,
           0,
           0,
           0
@@ -438,6 +966,90 @@
         "branches": {
         }
       },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/products_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/users_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/search_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/manucheremeh/Desktop/pim_blog/app/controllers/home_controller.rb": {
         "lines": [
           0,
@@ -451,29 +1063,116 @@
         "branches": {
         }
       },
-      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/authentication/sessions_controller.rb": {
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/admin_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/posts_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/authentication/passwords_controller.rb": {
         "lines": [
           0,
           0,
           0,
-          null,
-          0,
-          0,
           0,
           null,
           0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           0,
           0,
           null,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/authentication/sessions_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/authentication/omniauth_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
           0,
           0,
           0,
@@ -492,12 +1191,68 @@
           0,
           0,
           0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/markets_controller.rb": {
+        "lines": [
+          0,
           null,
           0,
           0,
           0,
           null,
           0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/manucheremeh/Desktop/pim_blog/app/controllers/contact_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
           0,
           0,
           0,
@@ -531,6 +1286,6 @@
         }
       }
     },
-    "timestamp": 1611366012
+    "timestamp": 1615195807
   }
 }

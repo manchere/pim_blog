@@ -69,9 +69,15 @@ $box-shadow-sm: 0 0.125rem 0.25rem 0 rgba($gray-900, .2) !default;
 $box-shadow: 0 0.15rem 1.75rem 0 rgba($gray-900, .15) !default;
 // $box-shadow-lg: 0 1rem 3rem rgba($black, .175) !default;
 
-// Borders Radius
+// Borders components
 $border-radius: 0.35rem !default;
 $border-color: darken($gray-200, 2%) !default;
+$border-width:                1px !default;
+$border-color:                $gray-300 !default;
+$border-radius:               .25rem !default;
+$border-radius-lg:            .3rem !default;
+$border-radius-sm:            .2rem !default;
+
 
 // Spacing Variables
 // Change below variable if the height of the navbar changes
@@ -99,6 +105,10 @@ $dropdown-link-hover-color: $white;
 $dropdown-link-hover-bg: #46638a;
 $dropdown-link-active-bg: $default;
 
+//Navs
+$nav-divider-color:                 $gray-200 !default;
+$nav-divider-margin-y:              $spacer / 2 !default;
+
 // Images
 $login-image: 'pim_login_sm.png' !default;
 $register-image: 'pim_login_sm.png' !default;
@@ -116,9 +126,51 @@ $input-btn-padding-x:         .75rem !default;
 $input-btn-padding-y-sm:      .25rem !default;
 $input-btn-padding-x-sm:      .5rem !default;
 
+$input-btn-padding-y-lg:      .5rem !default;
+$input-btn-padding-x-lg:      1.0rem !default;
+
 //Buttons
 $btn-padding-y:               $input-btn-padding-y !default;
 $btn-padding-x:               $input-btn-padding-x !default;
 
 $btn-padding-y-sm:            $input-btn-padding-y-sm !default;
 $btn-padding-x-sm:            $input-btn-padding-x-sm !default;
+
+$btn-padding-y-lg:            $input-btn-padding-y-lg !default;    
+$btn-padding-x-lg:            $input-btn-padding-y-lg !default;
+
+// quickly modify global styling by enabling or disabling optional features
+$enable-caret:                                true !default;
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+$zindex-dropdown:                   1000 !default;
+$zindex-sticky:                     1020 !default;
+$zindex-fixed:                      1030 !default;
+$zindex-modal-backdrop:             1040 !default;
+$zindex-modal:                      1050 !default;
+$zindex-popover:                    1060 !default;
+$zindex-tooltip:                    1070 !default;
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+$dropdown-min-width:                10rem !default;
+$dropdown-padding-x:                0 !default;
+$dropdown-padding-y:                .5rem !default;
+$dropdown-spacer:                   .125rem !default;
+$dropdown-font-size:                $font-size-base !default;
+$dropdown-color:                    $body-color !default;
+$dropdown-bg:                       $white !default;
+$dropdown-border-color:             rgba($black, .15) !default;
+$dropdown-border-radius:            $border-radius !default;
+$dropdown-border-width:             $border-width !default;
+$dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width) !default;
+$dropdown-divider-bg:               $gray-200 !default;
+$dropdown-divider-margin-y:         $nav-divider-margin-y !default;
+$dropdown-box-shadow:               0 .5rem 1rem rgba($black, .175) !default;

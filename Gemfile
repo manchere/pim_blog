@@ -17,19 +17,31 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+# Elasticsearch
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+# ckeditor
+gem 'ckeditor', github: 'galetahub/ckeditor'
+# minimagik
+gem "mini_magick"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 gem 'jwt'
+gem 'mail_form'
 # Use Active Storage variant
 gem 'htmlbeautifier'
 gem 'image_processing', '~> 1.2'
-gem 'omniauth-facebook',          '~> 5.0'
-gem 'omniauth-google-oauth2',     '~> 0.6'
+# oauth
+# gem 'omniauth', '~> 2.0', '>= 2.0.3'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
 gem 'rubocop', '~> 1.8', require: false
+gem 'telephone_number'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

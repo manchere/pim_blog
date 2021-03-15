@@ -7,10 +7,11 @@
     <link rel="icon" href="assets/undraw_profile_p" type="image/png">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
   </head>
   <body>
-    <%= yield %>
     <%= render 'layouts/navbar' unless controller_name == 'sessions' || controller_name == 'passwords' %>
+    <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

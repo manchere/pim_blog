@@ -9,3 +9,10 @@
   @mixin font-size($fs, $important: false) {
     @include rfs($fs, $important);
   }
+
+  @mixin font-custom($color, $size, $font-family-sans-serif, $important: false) {
+   color: $color;
+   font-size: $size;
+   font-family: $font-family-sans-serif;
+  //  @include rfs($fs, $important);
+  }

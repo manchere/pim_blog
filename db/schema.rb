@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_202126) do
+ActiveRecord::Schema.define(version: 2021_03_06_141946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 2021_01_19_202126) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "admins", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_admins_on_user_id"
+  end
+
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "parent_id"
     t.string "title"
@@ -51,6 +58,25 @@ ActiveRecord::Schema.define(version: 2021_01_19_202126) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["meta_title"], name: "index_categories_on_meta_title", using: :gin
     t.index ["title"], name: "index_categories_on_title", using: :gin
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "data_fingerprint"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
+  create_table "contacts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -67,6 +93,24 @@ ActiveRecord::Schema.define(version: 2021_01_19_202126) do
   create_table "friendships", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "follower_id"
     t.uuid "followee_id"
+  end
+
+  create_table "identities", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "uid"
+    t.string "provider"
+    t.uuid "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "markets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "market_name"
+    t.uuid "user_id"
+    t.string "market_description"
+    t.integer "position"
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "post_comments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -104,6 +148,27 @@ ActiveRecord::Schema.define(version: 2021_01_19_202126) do
     t.text "content", default: "t", null: false
   end
 
+  create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.text "descriptions"
+    t.string "online"
+    t.integer "position"
+    t.integer "score"
+    t.float "price"
+    t.uuid "market_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "social_media", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "platform"
+    t.string "username"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "subscriptions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "mtn_momo_user_id"
     t.string "stripe_user_id"
@@ -132,7 +197,6 @@ ActiveRecord::Schema.define(version: 2021_01_19_202126) do
     t.string "middle_name"
     t.string "last_name"
     t.string "phone_number", limit: 30
-    t.date "last_login"
     t.text "intro"
     t.text "profile"
     t.datetime "created_at", precision: 6, null: false
@@ -142,6 +206,12 @@ ActiveRecord::Schema.define(version: 2021_01_19_202126) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "last_password_updated"
+    t.string "country"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

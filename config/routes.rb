@@ -65,14 +65,17 @@
 #                  rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+  
   mount Ckeditor::Engine => '/ckeditor'
   root 'home#index'
   # devise for users
   devise_for :users, controllers: { 
                                     registrations: 'authentication/registrations', 
                                     sessions: 'authentication/sessions',
-                                    passwords: 'authentication/passwords' 
+                                    passwords: 'authentication/passwords',
+                                    omniauth_callbacks: 'authentication/omniauth' 
                                   }
+
 
   get 'posts/show'
   get 'posts/index'
@@ -83,6 +86,8 @@ Rails.application.routes.draw do
   resources :contact, only: [:create, :new]
   resources :subscriptions
   resources :posts
+  resources :markets
+  resources :products
   # resources :users, except: []
 
   # devise_for :users, skip: [:sessions, :registrations, :passwords]
@@ -100,7 +105,7 @@ Rails.application.routes.draw do
     #   put 'reset-password', to: 'authentication/passwords#edit'
     # end
 
-  get 'plans', to: 'plans#new'
+  get 'plans', to: 'plans#index'
 
   namespace :admin do
     get '/dashboard', to: 'dashboard#index', as: :dashboard

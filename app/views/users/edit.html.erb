@@ -12,7 +12,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
         <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-        <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @user.username %></li>
       </ol>
     </nav>
     <div class="row gutters-sm">
@@ -20,19 +20,20 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <%= link_to edit_user_path do %>
+              <%= form_for @user do |f| %>
                 <%= image_tag current_user.displayed_image('undraw_profile_p'), class: 'rounded-circle', width: '150', alt: 'not available' %>
+                <%= f.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
+                <div class="mt-3">
+                  <h4><% current_user.full_name %></h4>
+                  <p class="text-secondary mb-1"><% current_user.profile %><%= link_to 'edit', edit_user_path %></p>
+                  <p class="text-muted font-size-sm">
+                    <%=link_to '#introModal', type: 'button',  data: { toggle: 'modal', target: '#introModal', info: 'intro' }, class: 'btn-link' do %>
+                      <%= checking_presence(current_user.intro, 'intro') %>
+                    <% end %>
+                  </p>
+                  <button class="btn btn-outline-default">View Posts</button>
+                </div>
               <% end %>
-              <div class="mt-3">
-                <h4><% current_user.full_name %></h4>
-                <p class="text-secondary mb-1"><% current_user.profile %></p>
-                <p class="text-muted font-size-sm">
-                  <%=link_to '#exampleModal', type: 'button',  data: { toggle: 'modal', target: '#exampleModal', info: 'intro' }, class: 'btn-link' do %>
-                    <%= checking_presence(current_user.intro, 'intro') %>
-                  <% end %>
-                </p>
-                <button class="btn btn-outline-default">View Posts</button>
-              </div>
             </div>
           </div>
         </div>
@@ -64,7 +65,7 @@
               <% end %>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-              <%=link_to '#exampleModal', type: 'button',  data: { toggle: 'modal', target: '#exampleModal', info: 'full_name' }, class: 'btn-link' do %>
+              <%=link_to '#Modal', type: 'button',  data: { toggle: 'modal', target: '#Modal', info: 'social_media' }, class: 'btn-link' do %>
                 <i class="fas fa-plus-circle"></i><span class="text-secondary">Add social media account</span>
               <% end %>
             </li>
@@ -79,7 +80,7 @@
                 <h6 class="mb-0">Username</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <%=link_to '#exampleModal', type: 'button',  data: { toggle: 'modal', target: '#exampleModal', info: 'full_name' }, class: 'btn-link' do %>
+                <%=link_to '#usernameModal', type: 'button',  data: { toggle: 'modal', target: '#usernameModal', info: 'usernname' }, class: 'btn-link' do %>
                   <%= checking_presence(current_user.username, 'username') %>
                 <% end %>
               </div>
@@ -122,7 +123,7 @@
                 <h6 class="mb-0">Phone</h6>
               </div>
               <div class="col-sm-9 text-secondary">
-                <%=link_to '#exampleModal', type: 'button',  data: { toggle: 'modal', target: '#exampleModal', info: 'full_name' }, class: 'btn-link' do %>
+                <%=link_to '#usernameModal', type: 'button',  data: { toggle: 'modal', target: '#exampleModal', info: 'full_name' }, class: 'btn-link' do %>
                   <%= checking_presence(current_user.phone_number, 'phone number') %>
                 <% end %>
               </div>
@@ -161,7 +162,7 @@
           <div class="col-sm-6 mb-3">
             <div class="card h-100">
               <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Profile</h6>
+                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2"></i>Profile<% <%= link_to  "edit",  %>%></h6>
                 <small><%= checking_presence(current_user.profile,'a profile. This is an extended description of you are. Feel free to express yourself.') %>
                 </small>
               </div>
@@ -172,4 +173,4 @@
     </div>
   </div>
 </div>
-<%= render partial: 'modal', id: '' %>
+<%= render 'allmodal' %>

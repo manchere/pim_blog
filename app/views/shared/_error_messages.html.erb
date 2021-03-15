@@ -1,8 +1,8 @@
 <% if resource.errors.any? %>
-  <div class="text-danger small">
+  <div>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class="auth-error small"><%= message %></li>
       <% end %>
     </ul>
   </div>

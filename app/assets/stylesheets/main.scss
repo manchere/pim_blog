@@ -21,10 +21,11 @@
 @import "application/objects/inputs";
 @import "application/objects/dropdown";
 @import "application/objects/cards";
+@import "application/objects/timeline";
+@import "application/objects/plan";
 
 // pages
 @import "application/pages/contact";
-@import "application/pages/friendships";
 @import "application/pages/home";
 @import "application/pages/post";
 @import "application/pages/login";
@@ -38,7 +39,9 @@
 
 // vendors
 @import "vendors/bootstrap-overrides";
+@import "vendors/rfs";
 
 //utilities
 @import "application/utilities/animation";
 @import "application/utilities/fontawesome";
+@import "application/utilities/highlight";
