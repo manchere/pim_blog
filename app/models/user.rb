@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :uuid             not null, primary key
+#  country                :string
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :inet
 #  email                  :string           default(""), not null
@@ -10,6 +11,7 @@
 #  first_name             :string
 #  intro                  :text
 #  last_name              :string
+#  last_password_updated  :datetime
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :inet
 #  middle_name            :string
@@ -51,15 +53,17 @@ class User < ApplicationRecord
   validates :slug, uniqueness: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :email, format: { with: VALID_EMAIL_REGEX }, presence: true
-  validates :phone_number, telephone_number: { country: proc{ |rec| rec .country }, types: [:fixed_line, :mobile] }
-  validates :username, format: { with: VALID_USERNAME_REGEX },
-            exclusion: { in: USERNAME_EXCLUSIONS, message: :duplicate },
-            uniqueness: { case_sensitive: false }
+  validates :phone_number, telephone_number: { country: proc{ |rec| rec.country }, types: [:fixed_line, :mobile] }
+  validates :phone_number, uniqueness: true
+  # validates :username, exclusion: { in: USERNAME_EXCLUSIONS, message: :duplicate },
+  #           uniqueness: { case_sensitive: false }
+  validates :encrypted_password, presence: true
   validates :encrypted_password, confirmation: true
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   # relationships
   has_many :active_relationships, foreign_key: :follower_id, class_name: 'Friendship', dependent: :destroy
@@ -71,6 +75,8 @@ class User < ApplicationRecord
   has_one_attached :image
   has_many :social_media
   has_many :posts
+  has_one :market
+  has_many :identities
 
   # friendly ID
   friendly_id :first_name, use: %i[slugged finders]
@@ -116,4 +122,15 @@ class User < ApplicationRecord
     active_relationships.create(followee_id: user_to_follow.id)
   end
 
+  def self.add_provider(user, auth)
+    Identity.create user: user, provider: auth['provider'], uid: auth['uid']
+  end
+
+  def self.find_or_create_user_if_email(auth)
+    unless user = User.find_by(email: auth['info']['email'])
+      user = create! email: auth['info']['email'].to_s.downcase, encrypted_password: Devise.friendly_token[0, 20] if auth['info']['email'].to_s.present?
+    end
+     Identity.create user: user, provider: auth['provider'], uid: auth['uid']    
+    user
+  end
 end

@@ -17,10 +17,4 @@ class Admin < ApplicationRecord
 
   # Relationshoips
   belongs_to :user
-
-
-  def admin?
-    admin.blank?
-  end
-
 end

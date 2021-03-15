@@ -8,7 +8,7 @@
 #  username   :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
+
 class SocialMedia < ApplicationRecord
     belongs_to :user
 
