@@ -26,9 +26,9 @@ class PostsController < ApplicationController
     @user = current_user
     @post = Post.new(post_params.merge(author_id: @user.id))
 
-    respond_to do |format|
+    respond_to do |format|sea
       if @post.save
-        format.html { redirect_to @post, notice: 'Teacher was successfully created.' }
+        format.html { redirect_to @post, notice: 'Post was successfully published.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
