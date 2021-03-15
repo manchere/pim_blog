@@ -21,11 +21,11 @@
                 <% end %>
                 <hr>
                 <div class="text-center">
-                  <a class="small" href="register.html">Create an Account!</a>
-                </div>
-                <div class="text-center">
-                  <a class="small" href="login.html">Already have an account? Login!</a>
-                </div>
+                <%= link_to 'Create an Account', new_user_registration_path, class:'small' %>
+              </div>
+              <div class="text-center">
+                <%= link_to 'Already have an account? Login!', new_user_session_path, class: 'small' %>
+              </div>
               </div>
             </div>
           </div>

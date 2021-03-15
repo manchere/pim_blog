@@ -1,26 +1,28 @@
 <div class="container">
-  <div class="card o-hidden border-0 shadow-lg my-5">
-    <div class="card-body p-0">
-      <div class="row">
-        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-        <div class="col-lg-7">
-          <div class="p-5">
-            <div class="text-center">
-              <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-            </div>
-            <%= form_for resource, as: resource_name, url: user_registration_path(resource_name), class: 'user' do |f| %>
-              <%= render 'shared/error_messages', resource: resource %>
-              <%= render partial: 'form', locals: { f: f } %>
-              <%= f.submit 'Register Account', class: 'btn btn-default btn-user btn-block' %>
+  <div class="pt-5">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+              </div>
+              <%= form_for resource, as: resource_name, url: user_registration_path, class: 'user' do |f| %>
+                <%= render 'shared/error_messages', resource: resource %>
+                <%= render partial: 'form', locals: { f: f } %>
+                <%= f.submit 'Register Account', class: 'btn btn-default btn-user btn-block' %>
+                <hr>
+                <%= render partial: 'authentication/oauth' %>
+              <% end %>
               <hr>
-              <%= render partial: 'authentication/oauth' %>
-            <% end %>
-            <hr>
-            <div class="text-center">
-              <%= link_to 'Forgot Password?', new_user_password_path, class:'small' %>
-            </div>
-            <div class="text-center">
-              <%= link_to 'Already have an account? Login!', new_user_session_path, class: 'small' %>
+              <div class="text-center">
+                <%= link_to 'Forgot Password?', new_user_password_path, class:'small' %>
+              </div>
+              <div class="text-center">
+                <%= link_to 'Already have an account? Login!', new_user_session_path, class: 'small' %>
+              </div>
             </div>
           </div>
         </div>

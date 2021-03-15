@@ -10,10 +10,12 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                 </div>
-                <%= form_for resource, as: resource_name, url: user_session_path(resource_name), class: 'user' do |f| %>
-                  <%= render 'shared/error_messages', resource: resource %>
+                <%= form_for resource, as: resource_name, url: user_session_path, class: 'user' do |f| %>
+                  <div class="text-danger small pb-2">
+                    <%= flash[:alert] %>
+                  </div>
                   <%= render partial: 'form', locals: { f: f } %>
-                  <%= f.submit 'login', class: 'btn btn-default btn-user btn-block' %>
+                  <%= f.submit 'Login', class: 'btn btn-default btn-user btn-block' %>
                   <hr>
                   <%= render partial: 'authentication/oauth' %>
                 <% end %>
