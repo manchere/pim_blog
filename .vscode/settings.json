@@ -1,0 +1,10 @@
+"files.associations": {
+    "*.erb": "erb",
+    "vscode-erb-beautify.tabStops":	2,
+    "vscode-erb-beautify.tab": false,
+    "vscode-erb-beautify.indentBy":	0,
+    "vscode-erb-beautify.stopOnErrors": false,
+    "vscode-erb-beautify.keepBlankLines": 0,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  }

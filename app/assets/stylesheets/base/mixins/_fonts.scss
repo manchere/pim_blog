@@ -1,0 +1,18 @@
+@mixin serif-font() {
+    font-family: 'Lora', 'Times New Roman', serif;
+  }
+  
+  @mixin sans-serif-font() {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  @mixin font-size($fs, $important: false) {
+    @include rfs($fs, $important);
+  }
+
+  @mixin font-custom($color, $size, $font-family-sans-serif, $important: false) {
+   color: $color;
+   font-size: $size;
+   font-family: $font-family-sans-serif;
+  //  @include rfs($fs, $important);
+  }

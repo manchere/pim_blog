@@ -1,0 +1,32 @@
+
+.widget {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0.5;
+    word-wrap: break-word;
+    background-color: rgb(243, 243, 243);
+    background-clip: border-box;
+}
+
+.widget-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+.widget-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: $default;
+    border-bottom: 1px solid $default;
+}
+
+.widget-btn {
+    color: $gray-900;
+    &:hover,
+    &:focus{
+        text-decoration: none;
+        color: $default;
+    }
+}

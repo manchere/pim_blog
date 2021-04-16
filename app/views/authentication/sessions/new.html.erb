@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                </div>
+                <%= form_for resource, as: resource_name, url: user_session_path, class: 'user' do |f| %>
+                  <div class="text-danger small pb-2">
+                    <%= flash[:alert] %>
+                  </div>
+                  <%= render partial: 'form', locals: { f: f } %>
+                  <%= f.submit 'Login', class: 'btn btn-default btn-user btn-block' %>
+                  <hr>
+                  <%= render partial: 'authentication/oauth' %>
+                <% end %>
+                <hr>
+                <div class="text-center">
+                  <%= link_to 'Forgot Password?', new_user_password_path, class: 'small' %>
+                </div>
+                <div class="text-center">
+                  <%= link_to 'Create an Account', new_user_registration_path, class: 'small' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PimBlog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="icon" href="assets/undraw_profile_p" type="image/png">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag Ckeditor.cdn_url %>
+  </head>
+  <body>
+    <%= render 'layouts/navbar' unless controller_name == 'sessions' || controller_name == 'passwords' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

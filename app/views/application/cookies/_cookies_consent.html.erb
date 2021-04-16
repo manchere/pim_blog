@@ -1,0 +1,11 @@
+<% if cookies['cookie_consent'] == 'false' %>
+  <div class="consent-bar clearfix">
+    <div class="consent-bar-heading">
+      <%= t('.text') %>
+    </div>
+    <div class="consent-bar-actions">
+      <%= link_to t('.learn_more'), page_path('cookies'), class: 'btn btn-xs btn-default btn-fill', target: '_blank' %>
+      <%= link_to t('.ok'), '#', class: 'cookies-eu-ok btn btn-xs btn-success btn-fill' %>
+    </div>
+  </div>
+<% end %>

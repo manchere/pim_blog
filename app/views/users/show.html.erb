@@ -1,0 +1,181 @@
+<header class="bg-default text-white py-5">
+  <div class="container">
+    <div class="page-heading text-center">
+      <h1>Profile</h1>
+      <span class="subheading">Manage your basic info, for a better experience</span>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="main-body">
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= checking_presence(current_user.username, 'a username') %></li>
+      </ol>
+    </nav>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <span><%= msg %></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <%= form_for @user do |f| %>
+                <%= image_tag current_user.displayed_image('undraw_profile_p'), class: 'rounded-circle', width: '150', alt: 'not available' %>
+                <%#= f.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
+                <div class="mt-3">
+                  <h4><% current_user.full_name %></h4>
+                  <p class="text-muted font-size-sm">
+                    <%=link_to '#introModal', type: 'button',  data: { toggle: 'modal', target: '#introModal', info: 'intro' }, class: 'btn-link' do %>
+                      <%= checking_presence(current_user.intro, 'intro') %>
+                    <% end %>
+                  </p>
+                  <%= link_to posts_path, class: 'btn btn-outline-default' do %>
+                    View Posts
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="card mt-3">
+          <ul class="list-group list-group-flush ">
+            <li class="list-group-item d-flex justify-content-between bg-dark flex-wrap">
+              <span class="text-white pl-3"><%= current_user.admin? ? 'Admin' : 'Social media'%></span>
+            </li>
+            <%= render partial: 'social_media/index', collection: @social_medias, as: :social_media %>
+            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
+              <%= link_to root_path do %>
+                <span class="text-secondary"> </span>
+              <% end %>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+              <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
+              <%= link_to root_path do %>
+                <span class="text-secondary">@bootdey</span>
+              <% end %>
+            </li>
+            <%= render partial: 'social_media/new' %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body edit-user">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Username</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%=link_to '#usernameModal', type: 'button',  data: { toggle: 'modal', target: '#usernameModal', info: 'usernname' }, class: 'btn-link' do %>
+                  <%= checking_presence(current_user.username, 'a username') %>
+                <% end %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%=link_to '#nameModal', type: 'button',  data: { toggle: 'modal', target: '#nameModal', info: 'full_name' }, class: 'btn-link' do %>
+                  <%= checking_presence(current_user.full_name, 'full_name') %>
+                <% end %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= current_user.email %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Password</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%=link_to '#passwordModal', type: 'button',  data: { toggle: 'modal', target: '#passwordModal', info: 'password' }, class: 'btn-link' do %>
+                  <div><%= '*******' %></div>
+                <% end %>
+                <div><%= "Last changed: #{current_user.last_password_update_date}" %></div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%=link_to '#phonenumberModal', type: 'button',  data: { toggle: 'modal', target: '#phonenumberModal', info: 'full_name' }, class: 'btn-link' do %>
+                  <%= checking_presence(current_user.phone_number, 'phone number') %>
+                <% end %>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div class="row gutters-sm">
+          <div class="col-sm-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">Performance</i>Status</h6>
+                <small>Posts</small>
+                <div class="progress mb-3" style="height: 5px">
+                  <div class="progress-bar bg-default" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <small>Market View</small>
+                <div class="progress mb-3" style="height: 5px">
+                  <div class="progress-bar bg-default" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <small>One Page</small>
+                <div class="progress mb-3" style="height: 5px">
+                  <div class="progress-bar bg-default" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <small>Mobile Template</small>
+                <div class="progress mb-3" style="height: 5px">
+                  <div class="progress-bar bg-default" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <small>Backend API</small>
+                <div class="progress mb-3" style="height: 5px">
+                  <div class="progress-bar bg-default" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">
+                  <i class="material-icons text-info mr-2">
+                    Profile
+                    <%=link_to '#profileModal', type: 'button',  data: { toggle: 'modal', target: '#profileModal', info: 'profile' } do %>
+                      edit
+                    <% end %>
+                  </i>
+                </h6>
+                <small>
+                  <%= checking_presence(current_user.profile,'a profile. This is an extended description of who you are. Feel free to express yourself.') %>
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'users/updates/allmodal' %>
