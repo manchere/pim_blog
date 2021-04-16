@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
   before_action :get_user, only: [:edit, :update, :show, :destroy]
   def show  
   end
@@ -7,6 +8,18 @@ class UsersController < ApplicationController
   end
 
 def update  
+=======
+  def show
+    @user = User.find(params[:id])
+  end
+    
+  def edit
+    # @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+>>>>>>> fefa4fa9e435ef1f9c06d2f4568aae5274fec2f0
     if @user.update(user_params)
       flash[:success] = "Info was successfully updated"
       redirect_to @user
