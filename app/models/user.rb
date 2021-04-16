@@ -53,13 +53,8 @@ class User < ApplicationRecord
   validates :slug, uniqueness: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :email, format: { with: VALID_EMAIL_REGEX }, presence: true
-<<<<<<< HEAD
   # validates :phone_number, telephone_number: { country: proc{ |rec| rec.country }, types: [:fixed_line, :mobile] }
   # pvalidates :phone_number, uniqueness: true
-=======
-  validates :phone_number, telephone_number: { country: proc{ |rec| rec.country }, types: [:fixed_line, :mobile] }
-  validates :phone_number, uniqueness: true
->>>>>>> fefa4fa9e435ef1f9c06d2f4568aae5274fec2f0
   # validates :username, exclusion: { in: USERNAME_EXCLUSIONS, message: :duplicate },
   #           uniqueness: { case_sensitive: false }
   validates :encrypted_password, presence: true
