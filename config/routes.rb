@@ -66,13 +66,10 @@
 
 Rails.application.routes.draw do
   
-<<<<<<< HEAD
   get 'social_media/new'
   get 'social_media/destroy'
   get 'social_media/create'
   get 'social_media/index'
-=======
->>>>>>> fefa4fa9e435ef1f9c06d2f4568aae5274fec2f0
   mount Ckeditor::Engine => '/ckeditor'
   root 'home#index'
   # devise for users
@@ -82,7 +79,6 @@ Rails.application.routes.draw do
                                     passwords: 'authentication/passwords',
                                     omniauth_callbacks: 'authentication/omniauth' 
                                   }
-<<<<<<< HEAD
   
   resources :users
   resources :posts
@@ -91,21 +87,6 @@ Rails.application.routes.draw do
   resources :markets
   resources :products
   resources :social_media, only: [:new, :show, :destroy, :index]
-=======
-
-
-  get 'posts/show'
-  get 'posts/index'
-  get 'posts/new'
-  get 'posts/destroy'
-  
-  resources :users, except: [:index]
-  resources :contact, only: [:create, :new]
-  resources :subscriptions
-  resources :posts
-  resources :markets
-  resources :products
->>>>>>> fefa4fa9e435ef1f9c06d2f4568aae5274fec2f0
   # resources :users, except: []
 
   # devise_for :users, skip: [:sessions, :registrations, :passwords]

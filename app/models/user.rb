@@ -111,11 +111,7 @@ class User < ApplicationRecord
   end
 
   def last_password_update_date
-<<<<<<< HEAD
     last_password_updated.strftime('%m-%d-%Y') unless last_password_updated.nil?
-=======
-    last_password_updated.strftime('%m-%d-%Y') 
->>>>>>> fefa4fa9e435ef1f9c06d2f4568aae5274fec2f0
   end
 
   def last_password_update_time
